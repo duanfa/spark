@@ -33,14 +33,20 @@ public final class JavaWordCount {
   private static final Pattern SPACE = Pattern.compile(" ");
 
   public static void main(String[] args) throws Exception {
-    if (args.length < 2) {
+    /*if (args.length < 2) {
       System.err.println("Usage: JavaWordCount <master> <file>");
       System.exit(1);
     }
-
-    JavaSparkContext ctx = new JavaSparkContext(args[0], "JavaWordCount",
+	  JavaSparkContext ctx = new JavaSparkContext(args[0], "JavaWordCount",
+			  System.getenv("SPARK_HOME"), JavaSparkContext.jarOfClass(JavaWordCount.class));
+	  JavaRDD<String> lines = ctx.textFile(args[1], 1);
+	  */
+	  String master ="spark://10.12.30.128:7077";
+//	  master ="local";
+	  String file ="hdfs://10.12.30.128:9000/intpair/1.text";
+    JavaSparkContext ctx = new JavaSparkContext(master, "JavaWordCount",
         System.getenv("SPARK_HOME"), JavaSparkContext.jarOfClass(JavaWordCount.class));
-    JavaRDD<String> lines = ctx.textFile(args[1], 1);
+    JavaRDD<String> lines = ctx.textFile(file, 1);
 
     JavaRDD<String> words = lines.flatMap(new FlatMapFunction<String, String>() {
       @Override

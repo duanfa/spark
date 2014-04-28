@@ -2,5 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spark"/>
+	<classpathentry kind="lib" path="lib/spark-streaming-flume_2.10-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/spark-streaming-kafka_2.10-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/spark-examples_2.10-0.9.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/spark-examples_2.10-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/htmlparser.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
