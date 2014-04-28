@@ -9,7 +9,7 @@ import java.util.List;
  * @author afei
  * 
  */
-class HtmlEntity {
+class HtmlEntity implements Comparable<HtmlEntity>{
 
 	private String path;
 	private String content;
@@ -59,6 +59,17 @@ class HtmlEntity {
 
 	public void setInLinks(List<String> inLinks) {
 		this.inLinks = inLinks;
+	}
+	
+	@Override
+	public int compareTo(HtmlEntity o2) {
+		int em=0;
+		if(getPr()> o2.getPr()){
+			em=-1;
+		}else{
+			em=1;
+		}
+		return em;
 	}
 
 }

@@ -57,22 +57,7 @@ public class HtmlPageRank {
 			he.setPr(pr[i]);
 		}
 		
-		List<HtmlEntity> finalList=new ArrayList<HtmlEntity>();
-		Collections.sort(list,new Comparator(){
-
-			public int compare(Object o1, Object o2) {
-				HtmlEntity h1=(HtmlEntity)o1;
-				HtmlEntity h2=(HtmlEntity)o2;
-				int em=0;
-				if(h1.getPr()> h2.getPr()){
-					em=-1;
-				}else{
-					em=1;
-				}
-				return em;
-			}
-			
-		});
+		Collections.sort(list);
 		
 		for(HtmlEntity he:list){
 			System.out.println(he.getPath()+" : "+he.getPr());
