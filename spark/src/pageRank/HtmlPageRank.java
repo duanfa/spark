@@ -22,17 +22,17 @@ import org.htmlparser.visitors.HtmlPage;
 
 
 /**
- * pagerankËã·¨ÊµÏÖ
+ * pagerankç®—æ³•å®ç°
  * 
  * @author afei
  * 
  */
 public class HtmlPageRank {
 
-	/* ·§Öµ */
+	/* é˜€å€¼ */
 	public static double MAX = 0.00000000001;
 
-	/* ×èÄáÏµÊı */
+	/* é˜»å°¼ç³»æ•° */
 	public static double alpha = 0.85;
 
 	public static String htmldoc = "html";
@@ -65,10 +65,10 @@ public class HtmlPageRank {
 
 	}
 
-	/* pagerank²½Öè */
+	/* pagerankæ­¥éª¤ */
 
 	/**
-	 * ¼ÓÔØÎÄ¼ş¼ĞÏÂµÄÍøÒ³ÎÄ¼ş£¬²¢ÇÒ³õÊ¼»¯prÖµ(¼´initÊı×é)£¬¼ÆËãÃ¿¸öÍøÒ³µÄÍâÁ´ºÍÄÚÁ´
+	 * åŠ è½½æ–‡ä»¶å¤¹ä¸‹çš„ç½‘é¡µæ–‡ä»¶ï¼Œå¹¶ä¸”åˆå§‹åŒ–prå€¼(å³initæ•°ç»„)ï¼Œè®¡ç®—æ¯ä¸ªç½‘é¡µçš„å¤–é“¾å’Œå†…é“¾
 	 */
 	public static void loadHtml() throws Exception {
 		File file = new File(htmldoc);
@@ -124,7 +124,7 @@ public class HtmlPageRank {
 	}
 
 	/**
-	 * ¼ÆËãpagerank
+	 * è®¡ç®—pagerank
 	 * 
 	 * @param init
 	 * @param alpho
@@ -137,21 +137,21 @@ public class HtmlPageRank {
 			HtmlEntity he0 = list.get(i);
 			for (int j = 0; j < init.length; j++) {
 				HtmlEntity he = list.get(j);
-				// ¼ÆËã¶Ô±¾Ò³ÃæÁ´½ÓÏà¹Ø×ÜÖµ
+				// è®¡ç®—å¯¹æœ¬é¡µé¢é“¾æ¥ç›¸å…³æ€»å€¼
 				if (i != j && he.getOutLinks().size() != 0
 						&& he.getOutLinks().contains(he0.getPath())/*he0.getInLinks().contains(he.getPath())*/) {
 					temp = temp + init[j] / he.getOutLinks().size();
 				}
 
 			}
-			//¾­µäµÄpr¹«Ê½
+			//ç»å…¸çš„prå…¬å¼
 			pr[i] = alpha + (1 - alpha) * temp;
 		}
 		return pr;
 	}
 
 	/**
-	 * ÅĞ¶ÏÇ°ºóÁ½´ÎµÄprÊı×éÖ®¼äµÄ²î±ğÊÇ·ñ´óÓÚÎÒÃÇ¶¨ÒåµÄ·§Öµ ¼ÙÈç´óÓÚ£¬ÄÇÃ´·µ»Øfalse£¬¼ÌĞøµü´ú¼ÆËãpr
+	 * åˆ¤æ–­å‰åä¸¤æ¬¡çš„præ•°ç»„ä¹‹é—´çš„å·®åˆ«æ˜¯å¦å¤§äºæˆ‘ä»¬å®šä¹‰çš„é˜€å€¼ å‡å¦‚å¤§äºï¼Œé‚£ä¹ˆè¿”å›falseï¼Œç»§ç»­è¿­ä»£è®¡ç®—pr
 	 * 
 	 * @param pr
 	 * @param init

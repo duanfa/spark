@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ÍøÒ³entity
+ * ç½‘é¡µentity
  * 
  * @author afei
  * 
@@ -13,10 +13,10 @@ class HtmlEntity implements Comparable<HtmlEntity>{
 
 	private String path;
 	private String content;
-	/* ÍâÁ´(±¾Ò³ÃæÁ´½ÓµÄÆäËûÒ³Ãæ) */
+	/* å¤–é“¾(æœ¬é¡µé¢é“¾æ¥çš„å…¶ä»–é¡µé¢) */
 	private List<String> outLinks = new ArrayList<String>();
 
-	/* ÄÚÁ´(ÁíÍâÒ³ÃæÁ´½Ó±¾Ò³Ãæ) */
+	/* å†…é“¾(å¦å¤–é¡µé¢é“¾æ¥æœ¬é¡µé¢) */
 	private List<String> inLinks = new ArrayList<String>();
 
 	private double pr;
